@@ -1,0 +1,492 @@
+
+
+1. Level1:
+massivdeki:
+1)elementleri goster                    -Show
+
+
+let massiv =[60,45,5000,3500,3999,4700];
+
+for (let f of massiv)
+{console.log(f)};
+60
+45
+5000
+3500
+3999
+4700
+
+
+2)elementleri terse goster              -Reverse
+
+
+function reverse (numbers)
+
+{for (a=numbers.length-1; a>=0; a--)
+
+{console.log(numbers[a]);}
+
+}
+
+
+
+reverse(massiv);
+4700
+
+3999
+
+3500
+
+5000
+
+45
+
+60
+
+
+3)elementlerin cemini goster            -Sum
+
+
+function sum (numbers)
+
+{let sum=0;
+
+for (let l of numbers)
+
+{sum+=l;}
+
+return sum;
+
+}
+
+
+sum (massiv);
+
+17304
+
+
+
+4)elementlerin ededi ortasini goster    -Avg
+
+
+function count (numbers)
+
+{let count=0;
+
+for (let s of numbers)
+
+{count++;}
+
+return count;
+
+}
+
+
+
+count (massiv);
+
+6
+
+
+
+function avg (numbers)
+
+{return sum(numbers)/count(numbers);
+
+}
+
+
+
+avg(massiv);
+
+2884
+
+
+
+
+
+5)340den boyuk elementleri goster       -GreaterThan340
+
+
+
+function GreatThan340 (numbers)
+
+{for (let c of numbers)
+
+{if (c>340)
+
+{console.log(c);}
+
+};
+
+}
+
+
+
+GreatThan340 (massiv);
+
+5000
+
+3500
+
+3999
+
+4700
+
+
+___________________________________________
+
+
+Level2:
+let ms=[[45,67,89],56,90,89,[34,55]];
+
+1)massivdeki butun ededlerin ededi ortasini tap
+
+
+function arraySum (array){
+
+let summator=0;
+
+for (let d of array){
+
+if(typeof d=="object"){
+
+for (let c of d){
+
+summator+=c;
+
+}
+
+}
+
+else
+
+summator+=d;
+}
+
+return summator;
+}
+
+
+
+arraySum (ms);
+525
+
+
+
+
+function count (array){
+
+let count=0;
+
+for (let k of array){
+
+if (typeof k=="object"){
+
+for (let p of k){
+
+count++;
+
+}
+
+}
+
+else
+
+count++;
+
+}
+
+return count;
+
+}
+
+
+
+
+
+count(ms);
+
+8
+
+
+
+function avg (numbers){
+
+return arraySum(ms)/count(ms);
+}
+
+
+
+
+avg (ms);
+
+65.625
+
+
+
+
+2)50den boyuk ededleri tap
+
+
+
+function GreaterThan50(array){
+
+for(let i of array){
+
+if(typeof i=="object"){
+
+GreaterThan50(i)
+
+
+} 
+else 
+
+if(typeof i=="number"&&i>50){
+
+console.log(i)}
+}
+}
+
+
+
+
+GreaterThan50 (ms);
+67
+89
+56
+90
+89
+55
+
+
+
+
+
+
+____________________________________
+
+Level3: let ms3=[[[55,66,77,88],23,44,90],89,93,41];
+
+1)massivdeki elementleri tersine goster 
+
+let ms3=[[[55,66,77,88],23,44,90],89,93,41];
+
+
+
+
+function Reverse(numbers){
+
+for(let c=numbers.length-1;c>=0;c--){
+
+if(typeof numbers[c]=="object"){
+
+Reverse(numbers[c])
+
+}
+
+else
+
+{
+
+console.log(numbers[c]);
+
+}
+
+}
+
+}
+
+
+
+
+
+Reverse (mss3);
+
+41
+
+93
+89
+90
+44
+23
+88
+77
+66
+55
+
+
+
+
+
+
+
+
+2)massivde 40dan boyuk 90dan kicik butun ededlerin cemini tap 
+
+
+function SumNumbersGreaterThan40to90 (array){
+
+let sum=0;
+ 
+for (let i=0; i<array.length; i++)
+ {
+
+if (typeof array[i]=="object"){sum+=SumNumbersGreaterThan40to90(array[i]);
+}
+
+else 
+if (array[i]<90 && array[i]>40) {sum+=array[i];
+}
+}
+ return sum;
+}
+
+
+
+
+SumNumbersGreaterThan40to90 (ms3);
+
+460
+
+
+
+3)3cu mertebedeki(burada: 55,66,77,88) massiv elementlerinin ededi ortasini tap
+
+
+function AverageThirdFloor(array){
+ let total=0;
+let average=0; 
+for(let i of array){
+if(typeof i=="object"){
+for(let f of i){
+if(typeof f=="object"){
+for(let m of f){
+if(typeofnm =="number"){
+total+=m;
+average=total/f.length
+}
+}
+}
+}
+}
+}
+return average;
+}
+
+
+
+AverageThirdFloor (ms3);
+71.5
+
+
+____________________________________________________-
+
+Level 4: let ms4=[[[55,66,77,88],["Nicat","Ziya","Ilkin"]23,44,90],["Suleyman","Shehriyar","Qezenfer"],89,93,41];
+
+1)massivdeki butun string melumatlarinin uzunlugunu tapin 
+
+
+function StringLength(array){
+
+for(let s of array){
+
+if(typeof s=="object"){StringLength(s)}
+
+else 
+if(typeof s=="string"){
+console.log(s.length)
+}
+}
+}
+
+
+
+
+
+StringLength (ms4);
+5
+4
+5
+8
+9
+8
+
+
+
+2)massivdeki butun 2ye qaliqsiz bolunen ededlerin cemini tapin 
+
+function Number(array){
+
+for(let n of array){
+
+if(typeof n=="object"){Number(n)}
+
+else 
+
+if(typeof n=="number"&& n%2==0){
+
+console.log(n);
+}
+
+}
+
+}
+
+
+
+
+Number (ms4);
+66
+88
+44
+90
+
+
+
+
+3)adinda kicik ve ya boyuk 'n' herf olan adlari gosterin
+
+
+function FindlettersNn (array){
+
+for(let k of array){
+
+if(typeof k=="object"){FindlettersNn(k)}
+
+else 
+if(typeof k=="string"){
+
+for(let m of k){
+
+if(m=="n"||m=="N"){
+
+console.log(k);
+
+}
+
+}
+
+}
+
+}
+
+}
+
+
+ FindlettersNn (ms4);
+
+Nicat
+
+Ilkin
+
+Suleyman
+
+Qezenfer
+
+
+
+ 
+
+
+
